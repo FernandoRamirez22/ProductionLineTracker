@@ -54,6 +54,7 @@ public class Main extends Application {
       // STEP 3: Execute a query
 
       stmt = conn.createStatement();
+      /*
 
       String sql = "SELECT * FROM JOBS";
 
@@ -63,6 +64,8 @@ public class Main extends Application {
 
         System.out.println(rs.getString(1));
       }
+
+       */
 
       // STEP 4: Clean-up environment
 
@@ -82,3 +85,6 @@ public class Main extends Application {
     launch(args);
   }
 }
+
+
+//Make public then resubmit to vanselow for credit
