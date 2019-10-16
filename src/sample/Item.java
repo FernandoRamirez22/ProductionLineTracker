@@ -1,25 +1,14 @@
 package sample;
 
 public interface Item {
+  public int getId();
 
-    public int getId();
+  public void setName(String name);
 
-    public String setName();
+  public String getName();
 
-    public String getName();
+  public void setManufacturer(String manufacturer);
 
-    public String setManufacturer();
-
-    public String getManufacturer();
-
-
-
-    String name = "Item Name";
-
-    public void sayName();
-
-
-
-
-
+  public String getManufacturer();
 }
+//Creating methods that I will use in other files

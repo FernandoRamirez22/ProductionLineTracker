@@ -1,21 +1,61 @@
 package sample;
 
 public abstract class Product implements Item {
+  private int id;
+  private String type;
+  private String manufacturer;
+  private String name;
 
-    int Id;
+  public Product(String name, String manufacturer, String type) {
+    this.name = name;
+    this.manufacturer = manufacturer;
+    this.type = type;
+  }
 
-    String type;
+  public int getId() {
+    return id;
+  }
 
-    String manufacturer;
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    String name;
+  @Override
+  public String getName() {
+    return name;
+  }
 
+  public void setName(String name) {
+    this.name = name;
+  }
 
+  public void setManufacturer(String manufacturer) {
+    this.manufacturer = manufacturer;
+  }
 
-    public Product(String name) {
-        this.name = name;
+  public String getManufacturer() {
+    return manufacturer;
+  }
 
-    } //End of constructor
-}//Go to office hours to talk about constructors
+  public String getType() {
+    return type;
+  }
 
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  @Override
+  public String toString() {
+    String str =
+        String.format(
+            "Name: %s\nManufacturer: %s\nType: %s", this.name, this.manufacturer, this.type);
+    return str;
+  }
+}
+
+class Widget extends Product {
+  Widget(String name, String manufacturer, String type) {
+    super(name, manufacturer, type);
+  }
 }

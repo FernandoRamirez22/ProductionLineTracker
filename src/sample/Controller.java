@@ -1,58 +1,82 @@
+/**
+ * This controller class responds to what SceneBuilder creates. Ties the two together.
+ *
+ * @author Fernando Ramirez
+ */
 package sample;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class Controller {
 
-  @FXML private ComboBox<Integer> DisplayList;
+  @FXML private Button btnAddProduct;
+
+  @FXML private Button btnRecordProduction;
+
+  @FXML private ChoiceBox<String> choiceBoxItemType;
+
+  @FXML private ComboBox<Integer> comboBoxQuantitySelection;
+
+  @FXML private ListView<String> listViewProductSelection;
+
+  @FXML private TextArea textArea_ProductionLog;
+
+  @FXML private TextField textFieldManufacturer;
+
+  @FXML private TextField textFieldProductName;
+
+  //Scene builder code^^
 
   /**
-   * DiplayProduction will print "Product" when clicked
+   * This function appends product data to the database, productDatabase.
    *
-   * @param event
+   * @param event This event happens when clicked by "mouseclick".
    */
   @FXML
-  void DiplayProduction(MouseEvent event) {
-    System.out.println("Product");
+  void addProduct(MouseEvent event) {
+    String productName = textFieldProductName.getText(); // assign input to string
+    String manufacturer = textFieldManufacturer.getText(); // assign input to string
+    String sql =
+        "INSERT INTO Product(type, manufacturer, name) VALUES ('AUDIO' , '"
+            + manufacturer
+            + "','"
+            + productName
+            + "')";
+    Main.executeSql(sql); // send inputted string to sql
   }
 
   /**
-   * RecordProduct will print "Recorded" when clicked
+   * This function records the log of the products.
    *
-   * @param event
+   * @param event This event happens when clicked by mouseclick.
    */
   @FXML
-  void RecordProduct(MouseEvent event) {
-    System.out.println("Recorded");
-  }
+  void recordProduction(
+      MouseEvent event) {} // empty method (currently) google style sees this as an issue
 
   /**
-   * DisplayList will display dataBase list when clicked
+   * This function responds to the click on the comboBox_chooseQuantity button to let the user
+   * choose the quantity.
    *
-   * @param event
+   * @param event This event is triggered when clicked by mouseclick.
    */
   @FXML
-  void DisplayList(MouseEvent event) {}
+  void chooseQuantity(
+      MouseEvent event) {} // empty method (currently) google style sees this as an issue
 
-  /** Initialize() initiates comboBox on scene builder */
+  /** This function initializes the comboBox_chooseQuantity elements inside the comboBox. */
   @FXML
-  void initialize() {
-    DisplayList.setEditable(true);
-    DisplayList.getItems().add(1);
-    DisplayList.getItems().add(2);
-    DisplayList.getItems().add(3);
-    DisplayList.getItems().add(4);
-    DisplayList.getItems().add(5);
-    DisplayList.getItems().add(6);
-    DisplayList.getItems().add(7);
-    DisplayList.getItems().add(8);
-    DisplayList.getItems().add(9);
-    DisplayList.getItems().add(10);
-    DisplayList.getSelectionModel().selectFirst();
+  public void initialize() {
+    // Comment
+    comboBoxQuantitySelection.setEditable(true);
+    comboBoxQuantitySelection.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // 1 - 10 options
+    comboBoxQuantitySelection.getSelectionModel().selectFirst();
   }
 }
