@@ -1,6 +1,7 @@
-package sample;
+package notSample;
 
 public interface Item {
+
   public int getId();
 
   public void setName(String name);
@@ -11,4 +12,4 @@ public interface Item {
 
   public String getManufacturer();
 }
-//Creating methods that I will use in other files
+//Initializing methods that I will use in other files

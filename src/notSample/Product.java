@@ -1,4 +1,4 @@
-package sample;
+package notSample;
 
 public abstract class Product implements Item {
   private int id;

@@ -1,9 +1,8 @@
-package sample;
+package notSample;
 
 public class Box implements Item {
 
 //getters and setters, implementing methods
-
   @Override
   public int getId() {
     return 0;
