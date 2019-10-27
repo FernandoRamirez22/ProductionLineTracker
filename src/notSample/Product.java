@@ -1,15 +1,32 @@
 package notSample;
 
 public abstract class Product implements Item {
+
   private int id;
   private String type;
   private String manufacturer;
   private String name;
+  private ItemType itemType;
 
   public Product(String name, String manufacturer, String type) {
+
     this.name = name;
     this.manufacturer = manufacturer;
     this.type = type;
+  }
+
+  public Product(String name, String manufacturer, ItemType itemType) {
+    this.name = name;
+    this.manufacturer = manufacturer;
+    this.itemType = itemType;
+  }
+
+  public ItemType getItemType() {
+    return this.itemType;
+  }
+
+  public void setItemType(ItemType itemType) {
+    this.itemType = itemType;
   }
 
   public int getId() {
@@ -49,13 +66,13 @@ public abstract class Product implements Item {
   public String toString() {
     String str =
         String.format(
-            "Name: %s\nManufacturer: %s\nType: %s", this.name, this.manufacturer, this.type);
+            "Name: %s\nManufacturer: %s\ntype: %s", this.name, this.manufacturer, this.itemType);
     return str;
   }
 }
 
 class Widget extends Product {
-  Widget(String name, String manufacturer, String type) {
+  Widget(String name, String manufacturer, ItemType type) {
     super(name, manufacturer, type);
   }
 }

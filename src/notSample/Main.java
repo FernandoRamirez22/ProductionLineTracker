@@ -1,40 +1,20 @@
-/**
- * The driver class will launch the ProductionLineTracker program.
- *
- * @author Fernando Ramirez
- */
 package notSample;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import java.util.Date;
 
-import java.sql.Statement;
+class Main {
+  public static void main(String[] args) {
 
-public class Main extends Application {
+    Product productProduced = new Widget("iPod", "Apple", ItemType.AUDIO);
 
+    // test constructor used when creating production records from user interface
+    int numProduced = 3; // this will come from the combobox in the UI
+    int itemCount = 0;
 
-  static Statement stmt = null;
-
-  /**
-   * Function initiates ProductionLineTracker program.
-   *
-   * @param primaryStage This is the GUI stage.
-   * @throws Exception
-   */
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("ProductionWithTabs.fxml"));
-    primaryStage.setTitle("Production Line Tracker");
-    primaryStage.setScene(new Scene(root, 300, 275));
-    primaryStage.show();
-  } // start
-
-
-
-
-
-
+    for (int productionRunProduct = 0; productionRunProduct < numProduced; productionRunProduct++) {
+      ProductionRecord pr = new ProductionRecord(productProduced, itemCount++);
+      // using the iterator as the product id for testing
+      System.out.println(pr.toString());
+    }
+  }
 }

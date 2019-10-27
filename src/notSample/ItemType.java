@@ -1,18 +1,22 @@
 package notSample;
 
 public enum ItemType {
-    AUDIO ("AU"),
+  AUDIO("AU"),
 
-    VISUAL ("VI"),
+  VISUAL("VI"),
 
-    AUDIO_MOBILE ("AM"),
+  AUDIO_MOBILE("AM"),
 
-    VISUAL_MOBILE ("VM");
+  VISUAL_MOBILE("VM");
 
-    public String code;
+  private String productType;
 
-    ItemType(String code){
-        this.code = code;
-    }
+  ItemType(String productType) {
+    this.productType = productType;
+  }
 
+  public String getProductType() {
+
+    return this.productType;
+  }
 }

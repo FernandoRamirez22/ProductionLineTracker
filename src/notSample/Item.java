@@ -12,4 +12,4 @@ public interface Item {
 
   public String getManufacturer();
 }
-//Initializing methods that I will use in other files
+// Initializing methods that I will use in other files

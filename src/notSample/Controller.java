@@ -38,17 +38,17 @@ public class Controller {
 
   @FXML private TextField textFieldProductName;
 
-  //Scene builder code^^
+  // Scene builder code^^
 
   /**
-   * This function appends product data to the database, productDatabase.
-   *Populates database into scene when mouse is clicked
+   * This function appends product data to the database, productDatabase. Populates database into
+   * scene when mouse is clicked
+   *
    * @param event This event happens when clicked by "mouseclick".
    */
   @FXML
   static void addProduct(ActionEvent event) {
     // Added database code
-
 
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/ProductDatabase"; // line
@@ -77,8 +77,6 @@ public class Controller {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-
-
   }
 
   /**
@@ -94,7 +92,6 @@ public class Controller {
       e.printStackTrace();
     }
   }
-
 
   /**
    * This function records the log of the products.
@@ -123,26 +120,23 @@ public class Controller {
     comboBoxQuantitySelection.setEditable(true);
     comboBoxQuantitySelection.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // 1 - 10 options
     comboBoxQuantitySelection.getSelectionModel().selectFirst();
-    for(ItemType item: ItemType.values()){
+    for (ItemType item : ItemType.values()) {
       choiceBoxItemType.getItems().add(item);
     }
-
 
     /**
      * Driver function will declare database and start the program
      *
      * @param args array for the driver class
      */
-
     String productName = textFieldProductName.getText(); // assign input to string
     String manufacturer = textFieldManufacturer.getText(); // assign input to string
     String sql =
-            "INSERT INTO Product(type, manufacturer, name) VALUES ('AUDIO' , '"
-                    + manufacturer
-                    + "','"
-                    + productName
-                    + "')";
+        "INSERT INTO Product(type, manufacturer, name) VALUES ('AUDIO' , '"
+            + manufacturer
+            + "','"
+            + productName
+            + "')";
     executeSql(sql); // send inputted string to sql
-
   }
 }
