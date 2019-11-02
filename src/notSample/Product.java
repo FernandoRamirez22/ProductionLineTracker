@@ -2,20 +2,14 @@ package notSample;
 
 public abstract class Product implements Item {
 
+  // Fields that my Product will use
   private int id;
-  private String type;
   private String manufacturer;
   private String name;
   private ItemType itemType;
 
-  public Product(String name, String manufacturer, String type) {
-
-    this.name = name;
-    this.manufacturer = manufacturer;
-    this.type = type;
-  }
-
   public Product(String name, String manufacturer, ItemType itemType) {
+
     this.name = name;
     this.manufacturer = manufacturer;
     this.itemType = itemType;
@@ -54,12 +48,12 @@ public abstract class Product implements Item {
     return manufacturer;
   }
 
-  public String getType() {
-    return type;
+  public ItemType getType() {
+    return itemType;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setType(ItemType type) {
+    this.itemType = type;
   }
 
   @Override

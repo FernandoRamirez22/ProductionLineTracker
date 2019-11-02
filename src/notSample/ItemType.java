@@ -9,7 +9,7 @@ public enum ItemType {
 
   VISUAL_MOBILE("VM");
 
-  private String productType;
+  public String productType;
 
   ItemType(String productType) {
     this.productType = productType;
@@ -17,6 +17,10 @@ public enum ItemType {
 
   public String getProductType() {
 
-    return this.productType;
+    return productType;
+  }
+
+  public String setProductType() {
+    return productType;
   }
 }

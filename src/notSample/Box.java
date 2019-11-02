@@ -2,7 +2,7 @@ package notSample;
 
 public class Box implements Item {
 
-//getters and setters, implementing methods
+  // getters and setters, implementing methods
   @Override
   public int getId() {
     return 0;
