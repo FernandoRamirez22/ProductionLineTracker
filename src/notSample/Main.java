@@ -13,19 +13,24 @@ import javafx.stage.Stage;
 import java.util.Date;
 import java.sql.Statement;
 
-class Main {
+class Main extends Application {
+  /**
+   * Set the scene for GUI program.
+   *
+   *
+   * @param primaryStage
+   * */
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    Parent root = FXMLLoader.load(getClass().getResource("ProductionLine.fxml"));
+    primaryStage.setTitle("Production Line Tracker");
+    Scene scene = new Scene(root, 500, 450);
+    scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    primaryStage.setScene(scene);
+    primaryStage.show();
+  }
+
   public static void main(String[] args) {
-
-    Product productProduced = new Widget("iPod", "Apple", ItemType.AUDIO);
-
-    // test constructor used when creating production records from user interface
-    int numProduced = 3; // this will come from the combobox in the UI
-    int itemCount = 0;
-
-    for (int productionRunProduct = 0; productionRunProduct < numProduced; productionRunProduct++) {
-      ProductionRecord pr = new ProductionRecord(productProduced, itemCount++);
-      // using the iterator as the product id for testing
-      System.out.println(pr.toString());
-    }
+    launch(args);
   }
 }
